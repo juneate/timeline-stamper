@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:600|Inconsolata:700&display=swap');
+
+:root {
+  --colour: #ff5252;
+  --colour-darker: #d43939;
+  --border: transparent;
+  --col-a-on: #fff;
+  --col-a-bg: #4a468e;
+  --col-a-fg: #b2afed;
+  --col-a-light: #63609c;
+  --recording: #80468e;
+}
+
+body {
+  background-color: var(--col-a-bg);
+  font-size: 1.5em;
+  font-family: georgia, sans-serif;
+}
+.new {
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1;
+  border-radius: 50%;
+  position: fixed;
+  top: 0.5em;
+  left: 0.5em;
+  border: none;
+  box-shadow: 0.25em 0.25em 1em rgba(0,0,0,0.5);
+  background-color: rgb(255, 255, 255);
+}
+.list {
+  padding: 0 1em;
+}
+.track {
+  background-color: var(--col-a-light);
+  color: var(--col-a-fg);
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: 0.25em;
+  opacity: 0.5;
+  font-family: 'Exo', sans-serif;
+  border: 0.25em solid transparent;
+  transition: all 0.3s;
+}
+.track:first-child {
+  opacity: 1;
+  box-shadow: 0 0 1em rgba(0,0,0,0.4);
+}
+.running {
+  border-color: var(--colour);
+  background-color: var(--recording);
+}
+.header {
+  display: grid;
+  grid-column-gap: 0.5em;
+  grid-template-columns: 1fr auto auto;
+  align-items: end;
+}
+.lbl {
+  text-transform: uppercase;
+  font-size: 0.5em;
+}
+.name {
+  font-size: 2em;
+  display: block;
+/*   margin: 1em 0; */
+  color: var(--col-a-on);
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  border-bottom: 0.125em solid transparent;
+}
+.name:focus {
+  outline: none;
+  border-bottom-color: var(--colour);
+}
+.name::placeholder {
+  /* opacity: 0.5; */
+  color: var(--col-a-fg);
+}
+.time {
+  font-family: 'Inconsolata', monospace;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.start {
+  font-size: 0.8em;
+  padding: 0.05em 0.05em 0em 0.25em;
+  padding: 0.05em 0.25em;
+  border: none;
+  line-height: 1.5;
+  background-color: var(--col-a-fg);
+  border-radius: 0.25em;
+  margin: 0.125em 0;
+  vertical-align: middle;
+}
+.controls {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 0.25em;
+  overflow: hidden;
+  margin: 0.5em 0;
+/*   justify-content: space-between; */
+}
+.controls li {
+  flex-grow: 1;
+}
+.controls li:last-child .btn {
+  border-right: none;
+}
+.btn {
+  font-size: 0.75em;
+  display: block;
+  width: 100% !important;
+  padding: 0.5em 1em;
+  background-color: var(--colour);
+  color: var(--col-a-on);
+  text-shadow: 1px 1px 0 var(--col-a-bg);
+  border: none;
+  border-right: 1px solid var(--border);
+}
+.btn:focus {
+  /* outline: none; */
+  /* background-color: var(--colour-darker); */
+}
+.btn:disabled {
+  background-color: var(--border);
+}
+/* 
+.redo {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.25em;
+  position: relative;
+  line-height: 2.5;
+}
+.chck {
+  visibility: hidden;
+}
+.chck::after {
+  content: "Woops";
+  width: 100%;
+  display: block;
+  font-size: 1.25em;
+  color: var(--col-a-on);
+  text-shadow: 1px 1px 0 var(--col-a-bg);
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  line-height: 2;
+  background-color: var(--colour);
+  min-height: 1em;
+}
+.chck:checked::after {
+  content: "Re-recording";
+  background-color: var(--colour-darker);
+} */
+.timeline {
+  height: 0.5em;
+  width: 100%;
+  background-color: var(--col-a-fg);
+  margin-top: 1em;
+  position: relative;
+}
+.timeline::before, .timeline::after {
+  content: "";
+  position: absolute;
+  height: 125%;
+  width: 2px;
+  top: -25%;
+  background-color: var(--col-a-bg);
+}
+.timeline::before {
+  left: 0;
+}
+.timeline::after {
+  right: 0;
+}
+
+.event {
+  position: absolute;
+  height: 150%;
+  width: 0.75%;
+  top: -50%;
+  left: 0;
+  max-width: 0.25em;
+  /* box-shadow: 1px 0px 0 rgba(0,0,0,0.4); */
+}
+.cut {
+  background-color: var(--colour);
+}
+.key {
+  background-color: dodgerblue;
+}
+.slide {
+  background-color: gold;
+}
